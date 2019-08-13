@@ -5,11 +5,11 @@
             <title>4Dem.it</title>
             <sort_order>65</sort_order>
             <children>
-                <iscritti>
+                <items module="fourdem">
                     <title>Sincronizzazione Clienti</title>
                     <sort_order>1</sort_order>
-                    <action>adminhtml/users</action>
-                </iscritti>
+                    <action>fourdem/adminhtml_fourdem</action>
+                </items>
             </children>
             <!--
             <children>

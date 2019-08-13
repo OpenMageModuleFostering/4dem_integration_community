@@ -1,15 +1,29 @@
 <?xml version="1.0"?>
 <config>
     <tabs>
-        <fourdem translate="label" module="fourdem">
+        <fourdem_config translate="label" module="fourdem">
             <label><![CDATA[4Dem.it]]></label>
             <sort_order>400</sort_order>
-        </fourdem>
+        </fourdem_config>
     </tabs>
     <sections>
+    	
+    	<!--
+    	 <fourdem_options translate="label" module="fourdem">
+            <label>Hello World Config Options</label>
+            <tab>fourdem_config</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>                    
+        </fourdem_options>
+    	-->
+    	   	
+    	
         <fourdem translate="label" module="fourdem">
             <label><![CDATA[Configurazione 4Dem.it]]></label>
-            <tab>fourdem</tab>
+            <tab>fourdem_config</tab>
             <sort_order>1000</sort_order>
             <show_in_default>1</show_in_default>
             <show_in_website>1</show_in_website>
@@ -88,7 +102,7 @@
                             <label>Lista Clienti</label>
                             <comment><![CDATA[Lista dei Clienti che hanno effettuato almeno un acquisto.]]></comment>
                             <frontend_type>multiselect</frontend_type>
-                            <source_model>fourmarketing_fourdem/system_config_source_list</source_model>
+                            <source_model>fourdem/system_config_source_list</source_model>
                             <sort_order>60</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
@@ -99,7 +113,7 @@
                             <label>Iscritti alla Newsletter</label>
                             <comment><![CDATA[Lista degli iscritti alla newsletter.]]></comment>
                             <frontend_type>multiselect</frontend_type>
-                            <source_model>fourmarketing_fourdem/system_config_source_list</source_model>
+                            <source_model>fourdem/system_config_source_list</source_model>
                             <sort_order>70</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
@@ -127,104 +141,122 @@ Una volta che i campi saranno disponibili potrai effettuare il mapping utilizzan
 La mappatura campi non è obbligatoria, ma puà risultare molto utilie in quanto ti permetterà di personalizzare le email inserendo automaticamente i dati del destinatario, ad esempio Nome e Cognome
                     </div>]]></comment>
                     <fields>
-                        <firstname translate="comment">
-                            <label>Nome</label>
+                        <website_id translate="comment">
+                            <label>Magento Website</label>
                             <frontend_type>select</frontend_type>
                             <sort_order>1</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                            <source_model>fourmarketing_fourdem/adminhtml_system_source_fields</source_model>
-                        </firstname>
-                        <lastname translate="comment">
-                            <label>Cognome</label>
+                            <source_model>fourdem/adminhtml_system_source_fields</source_model>
+                        </website_id>
+                        <store_id translate="comment">
+                            <label>Magento Store</label>
                             <frontend_type>select</frontend_type>
                             <sort_order>2</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                            <source_model>fourmarketing_fourdem/adminhtml_system_source_fields</source_model>
-                        </lastname>
-                        <gender translate="comment">
-                            <label>Genere</label>
-                            <frontend_type>select</frontend_type>
-                            <sort_order>3</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <source_model>fourmarketing_fourdem/adminhtml_system_source_fields</source_model>
-                        </gender>
-                        <company translate="comment">
-                            <label>Nome Azienda</label>
-                            <frontend_type>select</frontend_type>
-                            <sort_order>4</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <source_model>fourmarketing_fourdem/adminhtml_system_source_fields</source_model>
-                        </company>
-                        <street translate="comment">
-                            <label>Indirizzo</label>
-                            <frontend_type>select</frontend_type>
-                            <sort_order>5</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <source_model>fourmarketing_fourdem/adminhtml_system_source_fields</source_model>
-                        </street>
-                        <city translate="comment">
-                            <label>Città</label>
-                            <frontend_type>select</frontend_type>
-                            <sort_order>6</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <source_model>fourmarketing_fourdem/adminhtml_system_source_fields</source_model>
-                        </city>
-                        <postcode translate="comment">
-                            <label>CAP</label>
-                            <frontend_type>select</frontend_type>
-                            <sort_order>7</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <source_model>fourmarketing_fourdem/adminhtml_system_source_fields</source_model>
-                        </postcode>
-                        <province translate="comment">
-                            <label>Provincia</label>
-                            <frontend_type>select</frontend_type>
-                            <sort_order>8</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <source_model>fourmarketing_fourdem/adminhtml_system_source_fields</source_model>
-                        </province>
-                        <region translate="comment">
-                            <label>Regione</label>
-                            <frontend_type>select</frontend_type>
-                            <sort_order>9</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <source_model>fourmarketing_fourdem/adminhtml_system_source_fields</source_model>
-                        </region>
-                        <country_id translate="comment">
-                            <label>Nazione</label>
+                            <source_model>fourdem/adminhtml_system_source_fields</source_model>
+                        </store_id>
+                        <firstname translate="comment">
+                            <label>Nome</label>
                             <frontend_type>select</frontend_type>
                             <sort_order>10</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                            <source_model>fourmarketing_fourdem/adminhtml_system_source_fields</source_model>
-                        </country_id>
-                        <created_at translate="comment">
-                            <label>Ultimo acquisto</label>
+                            <source_model>fourdem/adminhtml_system_source_fields</source_model>
+                        </firstname>
+                        <lastname translate="comment">
+                            <label>Cognome</label>
                             <frontend_type>select</frontend_type>
                             <sort_order>11</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                            <source_model>fourmarketing_fourdem/adminhtml_system_source_fields</source_model>
+                            <source_model>fourdem/adminhtml_system_source_fields</source_model>
+                        </lastname>
+                        <gender translate="comment">
+                            <label>Genere</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>fourdem/adminhtml_system_source_fields</source_model>
+                        </gender>
+                        <company translate="comment">
+                            <label>Nome Azienda</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>fourdem/adminhtml_system_source_fields</source_model>
+                        </company>
+                        <street translate="comment">
+                            <label>Indirizzo</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>fourdem/adminhtml_system_source_fields</source_model>
+                        </street>
+                        <city translate="comment">
+                            <label>Città</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>16</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>fourdem/adminhtml_system_source_fields</source_model>
+                        </city>
+                        <postcode translate="comment">
+                            <label>CAP</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>17</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>fourdem/adminhtml_system_source_fields</source_model>
+                        </postcode>
+                        <province translate="comment">
+                            <label>Provincia</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>18</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>fourdem/adminhtml_system_source_fields</source_model>
+                        </province>
+                        <region translate="comment">
+                            <label>Regione</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>19</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>fourdem/adminhtml_system_source_fields</source_model>
+                        </region>
+                        <country_id translate="comment">
+                            <label>Nazione</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>fourdem/adminhtml_system_source_fields</source_model>
+                        </country_id>
+                        <created_at translate="comment">
+                            <label>Ultimo acquisto</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>fourdem/adminhtml_system_source_fields</source_model>
                         </created_at>
                     </fields>
                 </fourdem_mapping>

@@ -1,0 +1,8 @@
+e<?xml version="1.0"?>
+<layout version="0.1.0">
+    <fourdem_adminhtml_fourdem_index>
+        <reference name="content">
+            <block type="fourdem/adminhtml_fourdem" name="fourdem"/>
+        </reference>
+    </fourdem_adminhtml_fourdem_index>
+</layout>

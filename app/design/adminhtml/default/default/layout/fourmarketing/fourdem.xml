@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_users_index>
+        <reference name="content">
+            <block type="fourmarketing_fourdem/adminhtml_users" name="fourmarketing_fourdem_users"/>
+        </reference>
+    </adminhtml_users_index>
+</layout>

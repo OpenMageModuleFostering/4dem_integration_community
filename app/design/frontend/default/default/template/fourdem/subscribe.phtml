@@ -1,0 +1,36 @@
+<?php
+  $titoloBox    = Mage::getStoreConfig('fourdem/box_newsletter/title_box');
+  $testoBox     = Mage::getStoreConfig('fourdem/box_newsletter/text_box');
+  $isSelectList = Mage::getStoreConfig('fourdem/system_access/select_list');
+?>
+<?php if($isSelectList): ?>
+    <style type="text/css">
+      .mini-newsletter .head{ background: url("../images/base-mini-bg.jpg") no-repeat; }
+      .mini-newsletter .head h4{ text-align: left!important; }
+      .mini-newsletter .input-text{ margin:5px 0px 5px 0px; width: 170px; }
+      .mini-newsletter button{ margin:5px 0 15px; 0; }
+    </style>
+    <div class="box base-mini mini-newsletter">
+        <div class="head">
+            <h4><?php echo $this->__($titoloBox); ?><a name="newsletter-box"></a></h4>
+        </div>
+        <form action="<?php echo $this->getUrl('fourdem/subscribers/new') ?>" method="post" id="newsletter-validate-detail">
+            <fieldset class="content">
+                <label for="newsletter"><?php echo $this->__($testoBox); ?>:</label>
+                <div class="input-box">
+                    <input name="email" type="text" id="newsletter" value="Indirizzo Email" class="required-entry validate-email input-text"/>
+                </div>
+                <button class="button" title="Iscriviti alla Newsletter" type="submit">
+                    <span><span>Iscriviti Ora</span></span>
+                </button>
+                <input type="hidden" name="ip-address" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>"/>
+            </fieldset>
+        </form>
+    </div>
+    <script type="text/javascript">
+        <!--
+        var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
+        new Varien.searchForm('newsletter-validate-detail', 'newsletter', '<?php echo $this->helper('newsletter')->__('Indirizzo Email'); ?>');
+        //-->
+    </script>
+<?php endif; ?>

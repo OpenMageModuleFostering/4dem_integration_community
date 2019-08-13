@@ -4,8 +4,9 @@ $installer = $this;
 $installer->startSetup();
 
 $installer->run("
-    CREATE TABLE fourmarketing_fourdem_users(
-      id_fourdem int(11) NOT NULL,
+-- DROP TABLE IF EXISTS fourdem_users;
+    CREATE TABLE fourdem_users(
+      fourdem_id int(11) NOT NULL,
       firstname text NOT NULL,
       lastname text NOT NULL,
       email_address text NOT NULL,

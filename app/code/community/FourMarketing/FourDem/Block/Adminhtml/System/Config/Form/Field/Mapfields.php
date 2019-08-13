@@ -4,16 +4,15 @@
  * System configuration form field renderer for mapping MergeVars fields with Magento
  * attributes.
  *
- * @category   FourMarketing
- * @package    FourMarketing_FourDem
- * @author     FourMarketing Team <devandtrade@devandtrade.it>
+ * @category   DevTrade
+ * @package    DevTrade_FourDem
+ * @author     DevTrade Team <devandtrade@devandtrade.it>
  */
 class FourMarketing_FourDem_Block_Adminhtml_System_Config_Form_Field_Mapfields extends Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract
 {
 
     public function __construct()
     {
-        
         $this->addColumn('magento', array(
             'label' => Mage::helper('fourdem')->__('Magento'),
             'style' => 'width:120px',

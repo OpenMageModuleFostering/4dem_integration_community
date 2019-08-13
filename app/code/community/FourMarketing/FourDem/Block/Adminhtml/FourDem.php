@@ -1,14 +1,14 @@
 <?php
- class FourMarketing_FourDem_Block_Adminhtml_Users extends Mage_Adminhtml_Block_Widget_Grid_Container
+ class FourMarketing_FourDem_Block_Adminhtml_FourDem extends Mage_Adminhtml_Block_Widget_Grid_Container
  {
    public function __construct()
    {
-      $this->_blockGroup     = 'fourmarketing_fourdem';
-      $this->_controller     = 'adminhtml_users';
+      $this->_blockGroup     = 'fourdem';
+      $this->_controller     = 'adminhtml_fourdem';
       $this->_headerText     = $this->__('Clienti Sincronizzati');
 
       $this->_addButton('button_synchronize', array(
-           'label'     => Mage::helper('fourdem')->__('Sincronizza Magento/4Dem'),
+           'label'     => Mage::helper('fourdem')->__('Sincronizza Magento/4Marketing'),
            'onclick'   => 'setLocation(\'' . $this->getUrl('*/*/synchronize') .'\')',
            'class'     => 'remove',
       ));

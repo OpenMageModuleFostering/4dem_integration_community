@@ -3,9 +3,9 @@
 /**
  * 4Marketing lists source file
  *
- * @category   FourMarketing
- * @package    FourMarketing_FourDem
- * @author     FourMarketing Team <devandtrade@devandtrade.it>
+ * @category   DevTrade
+ * @package    DevTrade_FourDem
+ * @author     DevTrade Team <devandtrade@devandtrade.it>
  */
 class FourMarketing_FourDem_Model_System_Config_Source_List
 {

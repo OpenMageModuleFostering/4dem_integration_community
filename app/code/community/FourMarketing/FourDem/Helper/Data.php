@@ -3,9 +3,9 @@
 /**
  * Helper - Wrap Connection To 4Marketing
  *
- * @category   FourMarketing
- * @package    FourMarketing_FourDem
- * @author     FourMarketing Team <devandtrade@devandtrade.it>
+ * @category   DevTrade
+ * @package    DevTrade_FourDem
+ * @author     DevTrade Team <devandtrade@devandtrade.it>
  */
 class FourMarketing_FourDem_Helper_Data extends Mage_Core_Helper_Abstract
 {
@@ -17,11 +17,20 @@ class FourMarketing_FourDem_Helper_Data extends Mage_Core_Helper_Abstract
 
     public function __construct()
     {
-        $this->consoleUrl = Mage::getStoreConfig('fourdem/system_access/url_console');
-
+        
+    	$this->consoleUrl = Mage::getStoreConfig('fourdem/system_access/url_console');
+		
+    	//$this->consoleUrl = 'http://mailchef.4dem.it/api.php';
+    	
         $params  = array(
-            'username' => '&Username='.Mage::getStoreConfig('fourdem/system_access/username'),
+			
+			 
+        	'username' => '&Username='.Mage::getStoreConfig('fourdem/system_access/username'),
             'password' => '&Password='.Mage::getStoreConfig('fourdem/system_access/password')
+        	/*
+       		'username' => '&Username=andreabardi',
+       		'password' => '&Password=andrea'
+       		*/
         );
 
         $resultJSON  = $this->_getRequestApi('User.Login', $params);
