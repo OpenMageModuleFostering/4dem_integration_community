@@ -42,6 +42,7 @@ class FourMarketing_FourDem_Adminhtml_FourDemController extends Mage_Adminhtml_C
 		}
 	}
 	public function synchronizeAction() {
+		
 		$start = microtime ( true );
 		
 		try {
@@ -54,7 +55,7 @@ class FourMarketing_FourDem_Adminhtml_FourDemController extends Mage_Adminhtml_C
 			$customers = $collection->getData ();
 			
 			// echo '<pre>'; print_r($customers); echo '</pre>'; die();
-			
+			/*
 			$mapFields = Mage::getStoreConfig ( 'fourdem/fourdem_mapping' );
 			$customFields = array ();
 			$customFieldsUpdate = array ();
@@ -67,11 +68,31 @@ class FourMarketing_FourDem_Adminhtml_FourDemController extends Mage_Adminhtml_C
 			
 			$customerSubscribers = Mage::helper ( 'fourdem' )->getAllSubscribers ( $customerListID )->Subscribers;
 			$newsletterSubscribers = Mage::helper ( 'fourdem' )->getAllSubscribers ( $newsletterListID )->Subscribers;
-			
+			*/
 			// Prima Fase: Importo i Clienti Magento nella "Lista Clienti" Di Destinazione..
 			foreach ( $customers as $customer ) {
+			
 				$modelCustomer = Mage::getModel ( 'customer/customer' )->load ( $customer ['entity_id'] );
+				Mage::app ()->getStore ()->setId ( $modelCustomer->getData ( 'store_id' ) );
+				
+				$mapFields = Mage::getStoreConfig ( 'fourdem/fourdem_mapping', $modelCustomer->getData ( 'store_id' ) );
+				$customFields = array ();
+				$customFieldsUpdate = array ();
+				
+				$customerListID = Mage::getStoreConfig ( 'fourdem/system_access/customer_list', $modelCustomer->getData ( 'store_id' ) );
+				$newsletterListID = Mage::getStoreConfig ( 'fourdem/system_access/newsletter_list' , $modelCustomer->getData ( 'store_id' ));
+				
+				$customerList = Mage::helper ( 'fourdem' )->getListInformation ( $customerListID )->List->Name;
+				$newsletterList = Mage::helper ( 'fourdem' )->getListInformation ( $newsletterListID )->List->Name;
+				
+				$customerSubscribers = Mage::helper ( 'fourdem' )->getAllSubscribers ( $customerListID )->Subscribers;
+				$newsletterSubscribers = Mage::helper ( 'fourdem' )->getAllSubscribers ( $newsletterListID )->Subscribers;
+				
+			
+			
+				
 				$addressCustomerModel = Mage::getModel ( 'customer/address' )->load ( $modelCustomer->getDefaultBilling () );
+				Mage::app ()->getStore ()->setId (0);	
 				
 				foreach ( $mapFields as $label => $customFieldID ) {
 					if (! empty ( $customFieldID ) && $label != 'billing_address') {
