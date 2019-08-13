@@ -1,0 +1,260 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <fourdem translate="label" module="fourdem">
+            <label><![CDATA[4Dem.it]]></label>
+            <sort_order>400</sort_order>
+        </fourdem>
+    </tabs>
+    <sections>
+        <fourdem translate="label" module="fourdem">
+            <label><![CDATA[Configurazione 4Dem.it]]></label>
+            <tab>fourdem</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <system_access translate="label" module="fourdem">
+                    <label>Configurazione 4Dem.it Email Marketing</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment><![CDATA[
+                      <div style="float:right;width:560px;">
+                       <p>Attivando il modulo 4Dem.it potrai sincronizzare i tuoi clienti e prospect con la nostra piattaforma di email marketing.
+                       Inserisci lo username e password che utilizzi per accedere alla console.</p>
+                       <p style="margin-top:95px;">
+                        Puoi scegliere se separare gli utenti registrati e chi si è solo iscritto alla newsletter in due liste separate, oppure inserirli tutti nella stessa lista.
+                        Se decidi di separarli verrà attivato nel frontend di magento un widget di iscrizione alla newsletter che avrà valenza a se stante, quindi si potrà essere iscritti alla newsletter senza essere registrati a magento. In caso contrario solamente gli utenti registrati a magento verranno sincronizzati con la console 4Dem.it.
+                        Ricorda che sulla console 4Dem.it puoi selezionare più di una lista per ogni campagna, la deduplica degli indirizzi è automatica!
+                       </p>
+                       <p style="margin-top:203px;">
+                        Seleziona la lista di destinazione dall'elenco delle liste presenti sul tuo account 4Dem.it.
+                        Se hai deciso di separare i clienti e gli iscritti alla newsletter ricordati che per la lista dedicata alla newsletter dovrai impostare il metodo di
+                        conferma Double Opt-in ed impostare la mail di conferma iscrizione sulla console 4Dem.it in modo che l'iscrizione alla newsletter rispetti i termini di legge e netiquette.
+                       </p>
+                      </div>
+                     ]]></comment>
+                    <fields>
+                        <active translate="label">
+                            <label>Attivare il Modulo 4Dem.it?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <username translate="label comment">
+                            <label>Username</label>
+                            <comment><![CDATA[Inserire la username fornita da 4Dem.it.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </username>
+                        <password translate="label comment">
+                            <label>Password</label>
+                            <comment><![CDATA[Inserire la password fornita da 4Dem.it.]]></comment>
+                            <frontend_type>password</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </password>
+                        <url_console translate="label comment">
+                            <label>Console URL</label>
+                            <comment><![CDATA[Inserire l'indirizzo della console. Esempio: http://www.4dem.it/api.php]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </url_console>
+                        <select_list translate="label">
+                            <label>Vuoi che gli iscritti alla newsletter e i clienti siano su 2 liste separate?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </select_list>
+                        <customer_list translate="label comment">
+                            <label>Lista Clienti</label>
+                            <comment><![CDATA[Lista dei Clienti che hanno effettuato almeno un acquisto.]]></comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>fourmarketing_fourdem/system_config_source_list</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <!--<can_be_empty>1</can_be_empty>-->
+                        </customer_list>
+                        <newsletter_list translate="label comment">
+                            <label>Iscritti alla Newsletter</label>
+                            <comment><![CDATA[Lista degli iscritti alla newsletter.]]></comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>fourmarketing_fourdem/system_config_source_list</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <can_be_empty>1</can_be_empty>
+                            <depends>
+                                <select_list>1</select_list>
+                            </depends>
+                        </newsletter_list>
+                    </fields>
+                </system_access>
+                <fourdem_mapping translate="label">
+                    <label>4Dem.it Mappatura Campi</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment><![CDATA[<p style="font-size:13px;"><strong style="margin-right:150px;">Magento</strong><strong>Console 4Dem.it</strong></p>
+                    <div style="float:right;width:573px;">
+                    In questo pannello puoi decidere di importare ulteriori informazioni sui tuoi clienti oltre all'indirizzo email.
+Per sincronizzare i dati aggiuntivi entra nel tuo account sulla console 4Dem.it, seleziona la lista dedicata agli utenti registrati in magento e crea i campi personalizzati di cui hai bisogno. Per ogni dato che vuoi sincronizzare devi creare un campo personalizzato.
+Quando crei il campo personalizzato imposta solamente il nome del campo e lascia tutti gli altri valori come proposti.
+Una volta che i campi saranno disponibili potrai effettuare il mapping utilizzano questo menù dove potrai selezionare per ogni dato disponibile su magento, il campo personalizzato della console 4Dem.it in cui importarlo.
+La mappatura campi non è obbligatoria, ma puà risultare molto utilie in quanto ti permetterà di personalizzare le email inserendo automaticamente i dati del destinatario, ad esempio Nome e Cognome
+                    </div>]]></comment>
+                    <fields>
+                        <firstname translate="comment">
+                            <label>Nome</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>fourmarketing_fourdem/adminhtml_system_source_fields</source_model>
+                        </firstname>
+                        <lastname translate="comment">
+                            <label>Cognome</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>fourmarketing_fourdem/adminhtml_system_source_fields</source_model>
+                        </lastname>
+                        <gender translate="comment">
+                            <label>Genere</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>fourmarketing_fourdem/adminhtml_system_source_fields</source_model>
+                        </gender>
+                        <company translate="comment">
+                            <label>Nome Azienda</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>fourmarketing_fourdem/adminhtml_system_source_fields</source_model>
+                        </company>
+                        <street translate="comment">
+                            <label>Indirizzo</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>fourmarketing_fourdem/adminhtml_system_source_fields</source_model>
+                        </street>
+                        <city translate="comment">
+                            <label>Città</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>fourmarketing_fourdem/adminhtml_system_source_fields</source_model>
+                        </city>
+                        <postcode translate="comment">
+                            <label>CAP</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>fourmarketing_fourdem/adminhtml_system_source_fields</source_model>
+                        </postcode>
+                        <province translate="comment">
+                            <label>Provincia</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>fourmarketing_fourdem/adminhtml_system_source_fields</source_model>
+                        </province>
+                        <region translate="comment">
+                            <label>Regione</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>fourmarketing_fourdem/adminhtml_system_source_fields</source_model>
+                        </region>
+                        <country_id translate="comment">
+                            <label>Nazione</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>fourmarketing_fourdem/adminhtml_system_source_fields</source_model>
+                        </country_id>
+                        <created_at translate="comment">
+                            <label>Ultimo acquisto</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>fourmarketing_fourdem/adminhtml_system_source_fields</source_model>
+                        </created_at>
+                    </fields>
+                </fourdem_mapping>
+                <box_newsletter translate="label">
+                    <label>Frontend Box Newsletter</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <title_box translate="label comment">
+                            <label>Titolo Box Newsletter</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title_box>
+                        <text_box translate="label comment">
+                            <label>Testo Box Newsletter</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </text_box>
+                    </fields>
+                </box_newsletter>
+            </groups>
+        </fourdem>
+      </sections>
+</config>

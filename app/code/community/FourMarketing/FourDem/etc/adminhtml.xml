@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <fourdem translate="title" module="fourdem">
+            <title>4Dem.it</title>
+            <sort_order>65</sort_order>
+            <children>
+                <iscritti>
+                    <title>Sincronizzazione Clienti</title>
+                    <sort_order>1</sort_order>
+                    <action>adminhtml/users</action>
+                </iscritti>
+            </children>
+            <!--
+            <children>
+                <utenti>
+                    <title>Gestione Utenti</title>
+                    <sort_order>2</sort_order>
+                    <action>adminhtml/iscritti/getutenti</action>
+                </utenti>
+            </children>
+            -->
+        </fourdem>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <fourdem>
+                                        <title>4Dem.it - Email Marketing</title>
+                                    </fourdem>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

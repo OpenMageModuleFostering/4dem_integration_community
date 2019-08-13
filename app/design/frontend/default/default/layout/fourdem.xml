@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <remove name="left.newsletter"/>
+        <reference name="right">
+            <block type="core/template" name="right.subscribe" template="fourdem/subscribe.phtml" before="-"/>
+        </reference>
+    </default>
+    <customer_account_create>
+        <reference name="customer_form_register">
+            <action method="setTemplate">
+                <template>fourdem/form/register-customer.phtml</template>
+            </action>
+        </reference>
+    </customer_account_create>
+</layout>

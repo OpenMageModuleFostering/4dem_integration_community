@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <FourMarketing_FourDem>
+            <active>true</active>
+            <codePool>community</codePool>
+        </FourMarketing_FourDem>
+    </modules>
+</config>
