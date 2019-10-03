@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/4Dem_Integration_community",
+    "name": "OpenMageModuleFostering\/4Dem_Integration_community",
     "type": "magento-module",
     "license": "Open-Software-License-(OSL)",
     "homepage": "",
     "description": "Integrate Magento Users and Newsletter Subscribers with 4Dem.it Email Marketing Platform",
     "authors": [
-    {
-        "name": "4Marketing.it",
-        "email": "ugo.reynaldi@4marketing.it"
-    }
-],
+        {
+            "name": "4Marketing.it",
+            "email": "ugo.reynaldi@4marketing.it"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
